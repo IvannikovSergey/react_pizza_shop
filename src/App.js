@@ -1,15 +1,17 @@
 import {Header, Home, Cart} from './components'
 import {Route, Routes} from "react-router-dom";
 import {useEffect, useState} from "react";
+import axios from "axios";
 
 function App() {
 
     const [pizzas, setPizzas] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/db.json')
-            .then(res => res.json())
-            .then(data => setPizzas(data.pizzas))
+        axios.get('http://localhost:3000/db.json').then(({data}) => {setPizzas(data.pizzas)})
+        // fetch('http://localhost:3000/db.json')
+        //     .then(res => res.json())
+        //     .then(data => setPizzas(data.pizzas))
     }, [])
 
     return <div className="wrapper">
