@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import classNames from 'classnames'
 
-function PizzaBlock({name, sizes, price, imageUrl, types}) {
+function Index({name, sizes, price, imageUrl, types}) {
 
     const availableTypes = ['тонкое', 'традиционное']
     const availableSizes = [26, 30, 40]
@@ -69,4 +69,4 @@ function PizzaBlock({name, sizes, price, imageUrl, types}) {
     </div>
 }
 
-export default PizzaBlock;
+export default Index;
