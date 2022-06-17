@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import classNames from 'classnames'
+import {Button} from "../index";
 
-function Index({name, sizes, price, imageUrl, types}) {
+function Index({id, name, sizes, price, imageUrl, types, onClickAddPizza}) {
 
     const availableTypes = ['тонкое', 'традиционное']
     const availableSizes = [26, 30, 40]
@@ -15,6 +16,17 @@ function Index({name, sizes, price, imageUrl, types}) {
     function onSelectSize(index) {
         setActiveSize(index)
     }
+
+    const onAddPizza = () => {
+        const obj = {
+            id,
+            name,
+            imageUrl,
+            price,
+            size: activeSize,
+            type: availableTypes[activeType]
+        }
+        onClickAddPizza(obj)}
 
     return <div className="pizza-block">
         <img
@@ -49,7 +61,7 @@ function Index({name, sizes, price, imageUrl, types}) {
         </div>
         <div className="pizza-block__bottom">
             <div className="pizza-block__price">от {price} ₽</div>
-            <div className="button button--outline button--add">
+            <Button onClick={onAddPizza} className="button--add" outline>
                 <svg
                     width="12"
                     height="12"
@@ -64,7 +76,7 @@ function Index({name, sizes, price, imageUrl, types}) {
                 </svg>
                 <span>Добавить</span>
                 <i>2</i>
-            </div>
+            </Button>
         </div>
     </div>
 }
