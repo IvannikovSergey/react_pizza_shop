@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import classNames from 'classnames'
 import {Button} from "../index";
 
-function Index({id, name, sizes, price, imageUrl, types, onClickAddPizza}) {
+function Index({id, name, sizes, price, imageUrl, types, onClickAddPizza, addedItemsToCart}) {
 
     const availableTypes = ['тонкое', 'традиционное']
     const availableSizes = [26, 30, 40]
@@ -26,7 +26,8 @@ function Index({id, name, sizes, price, imageUrl, types, onClickAddPizza}) {
             size: activeSize,
             type: availableTypes[activeType]
         }
-        onClickAddPizza(obj)}
+        onClickAddPizza(obj)
+    }
 
     return <div className="pizza-block">
         <img
@@ -75,7 +76,7 @@ function Index({id, name, sizes, price, imageUrl, types, onClickAddPizza}) {
                     />
                 </svg>
                 <span>Добавить</span>
-                <i>2</i>
+                {addedItemsToCart && <i>{addedItemsToCart}</i>}
             </Button>
         </div>
     </div>

@@ -28,10 +28,14 @@ const cart = (state = initialState, action) => {
                 : [...state.items[action.payload.id], action.payload]
         }
 
+        const allPizzas = [].concat.apply([], Object.values(newItems))
+        const totalPrice = allPizzas.reduce((sum, obj) => obj.price + sum, 0)
+
         return {
             ...state,
             items: newItems,
-            totalCount: [].concat.apply([], Object.values(newItems)).length
+            totalCount: allPizzas.length,
+            totalPrice
         }
     }
     return state
