@@ -25,9 +25,13 @@ body {
   }
 
   &__items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    //display: flex;
+    //flex-wrap: wrap;
+    //justify-content: flex-start;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 3vw;
   }
 
   &__top {
